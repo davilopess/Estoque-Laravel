@@ -22,15 +22,12 @@ class ProdutoController extends Controller {
 
     public function mostra($id){
         
-        $resposta = DB::select('select * from produtos where id = ?', [$id]);
-        
-        
-        
-        if(empty($resposta)) {
+        $produto = Produto::find($id);
+              
+        if(empty($produto)) {
             return "Esse produto não existe";
-        }
-        
-        return view('produto.detalhes')->with('p', $resposta[0]);
+        }    
+        return view('produto.detalhes')->with('p', $produto);
 
     }
 
@@ -39,14 +36,10 @@ class ProdutoController extends Controller {
     }
 
     public function adiciona(){
-        $nome = Request::input('nome');
-        $descricao = Request::input('descricao');
-        $valor = Request::input('valor');
-        $quantidade = Request::input('quantidade');
+        $params = Request::all();
+        $produto = new Produto($params);
 
-        DB::insert('insert into produtos
-        (nome, descricao, valor, quantidade) values (?,?,?,?)',
-        array($nome, $descricao, $valor, $quantidade));
+        $produto->save();
 
         return redirect()
             ->action('ProdutoController@lista')
