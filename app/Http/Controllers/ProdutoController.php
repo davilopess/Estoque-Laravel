@@ -8,9 +8,16 @@ use Request;
 class ProdutoController extends Controller {
     public function lista(){
 
-        $produtos = DB::select('select * from produtos');
+        $produtos = Produto::all();
 
         return view('produto.listagem', ['produtos' => $produtos]);
+    }
+
+    public function listaJson(){
+
+        $produtos = DB::select('select * from produtos');
+
+        return response()->json($produtos);
     }
 
     public function mostra($id){
