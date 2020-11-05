@@ -36,10 +36,7 @@ class ProdutoController extends Controller {
     }
 
     public function adiciona(){
-        $params = Request::all();
-        $produto = new Produto($params);
-
-        $produto->save();
+        Produto::create(Request::all());
 
         return redirect()
             ->action('ProdutoController@lista')
