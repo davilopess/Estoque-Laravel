@@ -1,3 +1,13 @@
+composer install
+
+preencher .env com dados do bd
+
+criar estoque_laravel database
+
+rodar comando php artisan migrate
+
+rodar comando php artisan db:seed
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
