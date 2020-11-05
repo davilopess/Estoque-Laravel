@@ -41,7 +41,9 @@ class ProdutoController extends Controller {
         (nome, descricao, valor, quantidade) values (?,?,?,?)',
         array($nome, $descricao, $valor, $quantidade));
 
-        return redirect('/produtos');
+        return redirect()
+            ->action('ProdutoController@lista')
+            ->withInput(Request::only('nome'));
 
     }
 }
