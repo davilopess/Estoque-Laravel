@@ -19,7 +19,7 @@
             <td>{{$p->quantidade}}</td>
             <td>
             <a href="/produtos/mostra/{{$p->id}}">
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="fab fa-laravel"></span>
             </a>
             </td>
         </tr>
