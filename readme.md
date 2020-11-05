@@ -2,6 +2,10 @@ composer install
 
 preencher .env com dados do bd
 
+rodar comando php artisan key:generate
+
+rodar comando php artisan config:clear
+
 criar estoque_laravel database
 
 rodar comando php artisan migrate
