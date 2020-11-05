@@ -36,6 +36,26 @@ class ProdutoTableSeeder extends Seeder {
         values (?,?,?,?)',
         array('Microondas', 1, 1520.00,
         'Manda SMS quando termina de esquentar'));
+        DB::insert('insert into produtos
+        (nome, quantidade, valor, descricao)
+        values (?,?,?,?)',
+        array('Mouse', 11, 120.00,
+        'Mouse razer 1600dpi'));
+        DB::insert('insert into produtos
+        (nome, quantidade, valor, descricao)
+        values (?,?,?,?)',
+        array('Teclado', 23, 20.00,
+        'Multilaser '));
+        DB::insert('insert into produtos
+        (nome, quantidade, valor, descricao)
+        values (?,?,?,?)',
+        array('Notebook', 1, 2520.00,
+        'Asus 1tb gtx 1050'));
+        DB::insert('insert into produtos
+        (nome, quantidade, valor, descricao)
+        values (?,?,?,?)',
+        array('Headset', 1, 1520.00,
+        'Hyperx 7.1'));
 
     }
 }
