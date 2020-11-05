@@ -8,7 +8,7 @@
         Você não tem nenhum produto cadastrado.
     </div>
 @else
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <h1>Listagem de produtos</h1>
     <table class="table table-striped table-hover">
         @foreach ($produtos as $p)
@@ -19,7 +19,7 @@
             <td>{{$p->quantidade}}</td>
             <td>
             <a href="/produtos/mostra/{{$p->id}}">
-                <span class="fab fa-laravel"></span>
+                <span class="material-icons">search</span>
             </a>
             </td>
         </tr>
