@@ -20,6 +20,9 @@
                     <li><a href="{{action('ProdutoController@novo')}}">
                         Novo
                     </a></li>
+                    <li><a href="/logout">
+                        Sair
+                    </a></li>
                     </ul>
 
             </div>

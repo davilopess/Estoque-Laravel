@@ -11,13 +11,22 @@
 |
 */
 
-Route::get('/produtos', 'ProdutoController@lista');
-Route::get('/produtos/novo', 'ProdutoController@novo');
-Route::get('/produtos/json', 'ProdutoController@listaJson');
-Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');;
-Route::post('/produtos/adiciona', 'ProdutoController@adiciona');
-Route::get('/produtos/remove/{id}', 'ProdutoController@remove');
+Auth::routes();
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/home');
+});
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/produtos', 'ProdutoController@lista')->middleware('auth');
+Route::get('/produtos/novo', 'ProdutoController@novo')->middleware('auth');
+Route::get('/produtos/json', 'ProdutoController@listaJson')->middleware('auth');
+Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+')->middleware('auth');
+Route::post('/produtos/adiciona', 'ProdutoController@adiciona')->middleware('auth');
+Route::get('/produtos/remove/{id}', 'ProdutoController@remove')->middleware('auth');
+
 
 Route::get('/', function () {
     return phpinfo();
 });
+
