@@ -14,9 +14,9 @@
 Auth::routes();
 Route::get('/logout', function () {
     Auth::logout();
-    return redirect('/home');
+    return redirect('/produtos');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/produtos', 'ProdutoController@lista')->middleware('auth');
 Route::get('/produtos/novo', 'ProdutoController@novo')->middleware('auth');
