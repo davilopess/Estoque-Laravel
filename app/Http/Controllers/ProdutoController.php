@@ -16,9 +16,9 @@ class ProdutoController extends Controller {
 
     public function listaJson(){
 
-        $produtos = DB::select('select * from produtos');
+        $produtos = Produto::all();
 
-        return response()->json($produtos);
+        return $produtos;
     }
 
     public function mostra($id){
@@ -52,6 +52,15 @@ class ProdutoController extends Controller {
 
         return redirect()
             ->action('ProdutoController@lista');
+    }
+
+    public function relatorioPdf(){
+        $produtos = Produto::all();
+    
+        return \PDF::loadView('produto.relatorio', compact('produtos'))
+                    // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+                    // ->download('relatorioEstoque.pdf');
+                    ->stream();
     }
         
 }

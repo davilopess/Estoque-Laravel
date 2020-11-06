@@ -24,7 +24,7 @@ Route::get('/produtos/json', 'ProdutoController@listaJson')->middleware('auth');
 Route::get('/produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+')->middleware('auth');
 Route::post('/produtos/adiciona', 'ProdutoController@adiciona')->middleware('auth');
 Route::get('/produtos/remove/{id}', 'ProdutoController@remove')->middleware('auth');
-
+Route::get('/produtos/relatorioPdf', 'ProdutoController@relatorioPdf');
 
 Route::get('/', function () {
     return phpinfo();

@@ -9,7 +9,12 @@
     </div>
 @else
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <h1>Listagem de produtos</h1>
+    <div class="container-topo">
+        <h1>Listagem de produtos</h1>
+        <a class="btn btn-success" href="{{action('ProdutoController@relatorioPdf')}}">
+                        Baixar Lista <span class="material-icons" style="color:white;">download</span>
+        </a>
+    </div>
     <table class="table table-striped table-hover">
         @foreach ($produtos as $p)
         <tr  class="{{$p->quantidade<=1 ? 'danger' : '' }}">
@@ -45,6 +50,20 @@ Um ou menos itens no estoque
             O produto {{ old('nome') }} foi adicionado.
     </div>
 @endif
-
+<style>
+    .container-topo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .container-topo a{
+        display:flex;
+        align-items: center;
+        font-family: Raleway;
+        font-weight: bold;
+        text-decoration:none;
+        color: white;
+    }
+</style>
 @stop
 
