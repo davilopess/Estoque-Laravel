@@ -27,11 +27,13 @@
                     <span class="material-icons">search</span>
                 </a>
             </td>
-            <td>
-                <a href="{{action('ProdutoController@remove', $p->id)}}">
-                    <span class="material-icons">delete</span>
-                </a>
-            </td>
+            
+                <td>
+                    <a href="{{action('ProdutoController@delete', $p->id)}}">
+                        <span class="material-icons">delete</span>
+                    </a>
+                </td>
+            
         </tr>
 
         @endforeach

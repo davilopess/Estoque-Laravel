@@ -1,10 +1,12 @@
 <?php 
 namespace estoque\Http\Controllers;
 
+use Gate;
 use estoque\Http\Requests\ProdutosRequest;
 use estoque\Produto;
 use Illuminate\Support\Facades\DB;
 use Request;
+use Illuminate\Auth\Access\Response;
 
 class ProdutoController extends Controller {
     public function lista(){
@@ -46,8 +48,13 @@ class ProdutoController extends Controller {
 
     }
 
-    public function remove($id){
+    public function delete($id){
         $produto = Produto::find($id);
+        
+        // if (Gate::denies('update-delete', $produto)) {
+        //     return 'oi';
+        // }
+        // $this->authorize('delete', $produto);
         $produto->delete();
 
         return redirect()

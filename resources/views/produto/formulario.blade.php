@@ -37,6 +37,8 @@
         <label>Quantidade</label>
         <input type="number" name="quantidade" class="form-control" value="{{ old('quantidade') }}"/>
     </div>
+    <input type="hidden"
+    name="produtos_id" value="{{ Auth::user()->id }}" />
 
     <button type="submit" class="btn
     btn-primary btn-block">Adicionar</button>

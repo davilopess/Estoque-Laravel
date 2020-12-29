@@ -19,7 +19,12 @@ class CreateProdutosTable extends Migration
             $table->decimal('valor', 7, 2);
             $table->string('descricao');
             $table->integer('quantidade');
+            $table->integer('produtos_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('produtos_id')->references('id')->on('users');
+
+
         });
     }
 
